@@ -1,0 +1,33 @@
+From 68e8c85b00cf8c34d7b7afad9fa7c15691502e2f Mon Sep 17 00:00:00 2001
+From: G Davey <support@aps-networks.com>
+Date: Fri, 8 Jan 2021 12:08:46 +0000
+Subject: [PATCH] Kernel module driver version.
+
+The driver included with the Linux kernel source tree has a version
+which is appears to be similar but independent of the latest Intel
+release. The version included with the kernel is version 5.6.0-k,
+but the latest release from Intel is only 5.4.6. When DKMS installs
+the module, because the updated version is "lower" than the kernel's
+version, it won't be installed. This patch changes the module
+version to be higher than the kernel's version, allowing it to
+be installed.
+---
+ src/igb_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/igb_main.c b/src/igb_main.c
+index 1517b38..1bee588 100644
+--- a/src/igb_main.c
++++ b/src/igb_main.c
+@@ -39,7 +39,7 @@
+ #define DRV_HW_PERF
+ #define VERSION_SUFFIX
+ 
+-#define DRV_VERSION	"5.4.6" VERSION_SUFFIX DRV_DEBUG DRV_HW_PERF
++#define DRV_VERSION	"5.7.0" VERSION_SUFFIX DRV_DEBUG DRV_HW_PERF
+ #define DRV_SUMMARY	"Intel(R) Gigabit Ethernet Linux Driver"
+ 
+ char igb_driver_name[] = "igb";
+-- 
+2.17.1
+

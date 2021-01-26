@@ -40,4 +40,4 @@ these use a different version to those supplied by Intel. The latest driver
 version from Intel is 5.4.6, and the kernel driver is version 5.6.0-k. If we
 were to use the Intel version the driver won't be installed as, from the 
 system's point of view, it is an "older" driver. Consequently, the module
-version has been patched to become version 5.6.1.
+version has been patched to become version 5.7.0.

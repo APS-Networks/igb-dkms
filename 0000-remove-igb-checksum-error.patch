@@ -1,0 +1,14 @@
+diff --color -Naur a/src/igb_main.c b/src/igb_main.c
+--- a/src/igb_main.c	2020-09-04 12:27:58.712450701 +0100
++++ b/src/igb_main.c	2021-01-26 14:41:22.600837718 +0000
+@@ -3014,9 +3014,7 @@
+ 	/* make sure the NVM is good */
+ 	if (e1000_validate_nvm_checksum(hw) < 0) {
+ 		dev_err(pci_dev_to_dev(pdev),
+-			"The NVM Checksum Is Not Valid\n");
+-		err = -EIO;
+-		goto err_eeprom;
++			"The NVM Checksum Is Not Valid, Continuing Anyway\n");
+ 	}
+ 
+ 	/* copy the MAC address out of the NVM */
